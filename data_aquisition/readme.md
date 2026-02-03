@@ -23,7 +23,7 @@ This project scrapes **Samsung phone listings from Amazon search pages** and the
 Recommended Scrapy structure:
 
 ```text
-amazon_samsung/
+data_aquisition/
 ├── amazon_samsung/
 │   ├── __init__.py
 │   ├── items.py
