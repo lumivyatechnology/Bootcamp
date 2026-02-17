@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "analytics_agent"
+version = "0.0.1"
+description = "Analytics Agent for bootcamp"
+license = "Apache-2.0"
+readme = { file = "README.md", content-type = "markdown" }
+dependencies = [
+    "langchain",
+    "langchain_openai",
+    "duckdb",
+    "pydantic-settings",
+    "pydantic",
+    "pandas",
+    "langgraph",
+    "fastapi",
+    "uvicorn",
+    "ag-ui-langgraph>=0.0.18",
+    "copilotkit==0.1.70a0",
+    "langfuse>=3.10.6",
+    "langchain-perplexity>=1.1.0",
+    "langchain-groq>=1.1.1",
+    "mcp[cli]",
+    "fastmcp>=2.14.1",
+    "langchain-mcp-adapters>=0.2.1",
+    "google-genai",
+    "psycopg2-binary>=2.9.11",
+]
+requires-python = ">=3.12"
+
+[dependency-groups]
+dev = ["pytest", "ruff"]
+test = ["pytest"]
+lint = ["ruff"]
+
+[tool.ruff]
+src = ["src"]
+
+[tool.mypy]
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+env_files = ".env"
+
+[[tool.uv.index]]
+name = 'copilotkit'
+url = "https://copilotkit.gateway.scarf.sh/simple/"
+explicit = true
