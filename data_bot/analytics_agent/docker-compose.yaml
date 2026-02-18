@@ -1,0 +1,40 @@
+version: '3'
+services:
+  agent_1:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - PORT=3050 
+      - POSTGRES_HOST=host.docker.internal
+    networks:
+      - loadbalancing
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  agent_2:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - PORT=3050 
+      - POSTGRES_HOST=host.docker.internal
+    networks:
+      - loadbalancing
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "3050:80"
+    networks:
+      - loadbalancing
+    depends_on:
+      - agent_1
+      - agent_2
+
+networks:
+  loadbalancing:
+
