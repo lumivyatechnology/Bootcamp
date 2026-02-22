@@ -2,28 +2,32 @@ version: '3'
 services:
   agent_1:
     build: .
+    restart: on-failure
     env_file:
       - .env
     environment:
       - PORT=3050 
       - POSTGRES_HOST=host.docker.internal
+      # - GROQ_API_KEY= # For testing loadbalancing
     networks:
       - loadbalancing
     extra_hosts:
       - "host.docker.internal:host-gateway"
+ 
   agent_2:
     build: .
+    restart: on-failure
     env_file:
       - .env
     environment:
       - PORT=3050 
       - POSTGRES_HOST=host.docker.internal
+      # - GROQ_API_KEY= # For testing loadbalancing
     networks:
       - loadbalancing
     extra_hosts:
       - "host.docker.internal:host-gateway"
-
-
+ 
   nginx:
     build: ./nginx
     container_name: nginx
