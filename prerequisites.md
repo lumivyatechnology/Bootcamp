@@ -147,11 +147,22 @@ Used for LLM observability and tracing.
 
 * [https://langfuse.com/docs](https://langfuse.com/docs)
 
-Steps:
+Steps
 
-1. Create a Langfuse account
-2. Generate an API key from the dashboard
-
+1. Visit the Langfuse documentation website.
+2. Create an account and log in.
+3. Navigate to the Organization tab and create a New Project
+![Architecture Diagram](images/LANGFUSE_new_project1.png)
+4. Enter a project name and click Create.
+![Architecture Diagram](images/LANGFUSE_create_new_project2.png)
+5. After project creation, go to Project Settings → API Keys.
+![Architecture Diagram](images/LANGFUSE_API_KEY3.png)
+6. Click Create New API Key.
+![Architecture Diagram](images/LANGFUSE_TO_CREATE_API_KEY4.png)
+7. (Optional) Add a note/description for the API key and generate it.
+![Architecture Diagram](images/LANGFUSE_CREATE_API5.png)
+8. Copy and Store the API key securely.
+>  **Never commit API keys to GitHub or share them publicly.**
 ---
 
 ### 3.2 Groq API Key
@@ -163,9 +174,15 @@ Used for LLM inference during hands-on sessions.
 * [https://console.groq.com/docs](https://console.groq.com/docs)
 
 Steps:
-
-1. Create a Groq account
-2. Generate an API key
+1. Visit the Groq console.
+2. Create an account and log in.
+3. Navigate to the API Keys section.
+![Architecture Diagram](images/1_groq_api_here.png)
+4. Click Create API Key.
+![Architecture Diagram](images/2_qroq_api_key_create.png)
+5. Fill in the required details and generate the key.
+![Architecture Diagram](images/3_groq_api_key.png)
+6. Copy and store the API key securely.
 
 >  **Never commit API keys to GitHub or share them publicly.**
 
