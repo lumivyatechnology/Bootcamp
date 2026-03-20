@@ -147,21 +147,21 @@ Used for LLM observability and tracing.
 
 * [https://langfuse.com/docs](https://langfuse.com/docs)
 
-Steps:
+Steps
 
-1. Create a Langfuse account
-2. Open the mentioned URL, SignUp/Login to the website.
-3. After you login, Go to Organization Tab and then click on new project.
+1. Visit the Langfuse documentation website.
+2. Create an account and log in.
+3. Navigate to the Organization tab and create a New Project
 ![Architecture Diagram](images/LANGFUSE_new_project1.png)
-4. Give your project name and then click on create.
+4. Enter a project name and click Create.
 ![Architecture Diagram](images/LANGFUSE_create_new_project2.png)
-5. Once you click on create, you will be directed to Project setting like shown below. Here click on API keys. 
+5. After project creation, go to Project Settings → API Keys.
 ![Architecture Diagram](images/LANGFUSE_API_KEY3.png)
-6. On the API tab, click on create new API keys.
+6. Click Create New API Key.
 ![Architecture Diagram](images/LANGFUSE_TO_CREATE_API_KEY4.png)
-7. You will receive a pop up like shown below, you can add note for API key that you are about to generate.
+7. (Optional) Add a note/description for the API key and generate it.
 ![Architecture Diagram](images/LANGFUSE_CREATE_API5.png)
-8. Save the API key in your secure designated file.
+8. Copy and Store the API key securely.
 >  **Never commit API keys to GitHub or share them publicly.**
 ---
 
@@ -174,15 +174,15 @@ Used for LLM inference during hands-on sessions.
 * [https://console.groq.com/docs](https://console.groq.com/docs)
 
 Steps:
-1. go to the website mentioned above and login
-2. Create a Groq account
-3. Create Groq api by clicking here.
+1. Visit the Groq console.
+2. Create an account and log in.
+3. Navigate to the API Keys section.
 ![Architecture Diagram](images/1_groq_api_here.png)
-4. Create an API key by clicking here.
+4. Click Create API Key.
 ![Architecture Diagram](images/2_qroq_api_key_create.png)
-5. Then by filling the required fields, you will receive API key.
+5. Fill in the required details and generate the key.
 ![Architecture Diagram](images/3_groq_api_key.png)
-6. Save the API key in your secure designated file.
+6. Copy and store the API key securely.
 
 >  **Never commit API keys to GitHub or share them publicly.**
 
