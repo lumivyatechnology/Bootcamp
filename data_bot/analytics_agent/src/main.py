@@ -1,14 +1,13 @@
-from fastapi import FastAPI
 import uvicorn
+from ag_ui_langgraph import add_langgraph_fastapi_endpoint
 from copilotkit import LangGraphAGUIAgent
-from config import settings
-from config.dependencies import db_tool
-from config.langfuse import languse_callback
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from ag_ui_langgraph import add_langgraph_fastapi_endpoint
-
 from analytics_agents.standalone_text_to_sql_agent import StandaloneTextToSQLAgent
+from config import settings
+from config.dependencies import db_tool
+from config.langfuse import langfuse_callback
 
 standalone_text_to_sql_agent = StandaloneTextToSQLAgent.from_groq(
     # llm_config=settings.LLM_CONFIG,
@@ -40,7 +39,7 @@ add_langgraph_fastapi_endpoint(
         name="analytics_agent",
         description="Analytics agent that have access to phone data",
         graph=agent,  # the graph object from your langgraph import
-        config={"callbacks": [languse_callback]},
+        config={"callbacks": [langfuse_callback]},
     ),
     path="/copilotkit",  # the endpoint you'd like to serve your agent on
 )
