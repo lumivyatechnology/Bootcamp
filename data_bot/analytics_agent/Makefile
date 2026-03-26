@@ -6,7 +6,7 @@ run_mcp:
 	uv run --env-file .env src/main_mcp.py
 
 run_summarizer:
-	uv run --env-file .env src/text_sumarizer.py
+	uv run --env-file .env src/text_summarizer.py
 
 mcp_serve:
 	uv run --env-file .env src/mcp_server/main.py
