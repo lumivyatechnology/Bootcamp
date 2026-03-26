@@ -111,8 +111,8 @@ class PostgresTool(Tools):
             if row["is_nullable"] == "NO":
                 col += " NOT NULL"
 
-            if row["column_default"]:
-                col += f" DEFAULT {row['column_default']}"
+            # if row["column_default"]:
+            #     col += f" DEFAULT {row['column_default']}"
 
             columns.append(col)
 

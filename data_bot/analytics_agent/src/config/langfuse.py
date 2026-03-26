@@ -9,4 +9,4 @@ langfuse_instance = Langfuse(
     base_url=settings.LANGFUSE_BASE_URL,
 )
 
-languse_callback = CallbackHandler()
+langfuse_callback = CallbackHandler()
