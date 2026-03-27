@@ -4,7 +4,6 @@ import os
 import pytest
 from dotenv import load_dotenv
 
-from analytics_agents.tools.duckdb import DuckDBTool, TableInfo
 from analytics_agents.tools.tool import Tools
 from analytics_agents.tools.user_input import UserInputTool
 from utils.answer_saver import AnswerSaver
@@ -57,6 +56,7 @@ TABLES = [
 @pytest.fixture(scope="session")
 def duckdb_tool() -> Tools:
     """Fixture that loads all tables once and provides the DuckDB tool object."""
+    from analytics_agents.tools.duckdb import DuckDBTool, TableInfo
 
     base_dir = os.environ.get("DATA_BASE_PATH_TEST", ".")
 
