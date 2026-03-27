@@ -77,8 +77,8 @@ The project uses a `Makefile` to simplify common tasks.
     -   **Command:** `fastmcp dev src/mcp_server/main.py`
 
 -   **`make run_summarizer`**
-    -   **Description:** Runs a utility script for text summarization located at `src/text_sumarizer.py`.
-    -   **Command:** `uv run --env-file .env src/text_sumarizer.py`
+    -   **Description:** Runs a utility script for text summarization located at `src/text_summarizer.py`.
+    -   **Command:** `uv run --env-file .env src/text_summarizer.py`
 
 ## 3. Codebase & Agent Documentation
 
