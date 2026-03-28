@@ -191,4 +191,17 @@ make run_ui_backend
 
 The backend will be available at [http://localhost:3050](http://localhost:3050). You can test the API using Postman or any HTTP client.
 
+---
+
+## 6. Containerize the Backend for Production
+Docker is used for containerization of the application backend file, and we use the following commands for dockerization. We containerize an app and then use it in production.
+```
+To build the image
+docker build -t analytics_agent .
+
+To run the container
+docker run --env-file .env -p 3050:3050 --name analytics_agent analytics_agent
+
+You can also use docker compose to run the container
+docker compose up --build
 ```
