@@ -62,6 +62,9 @@ cd data_acquisition
 # Create and activate a virtual environment
 uv venv --python 3.12
 
+#activate
+source .venv/bin/activate
+
 # Install dependencies
 uv pip install scrapy selenium webdriver-manager scrapy-fake-useragent
 ```
@@ -182,30 +185,5 @@ make run_ui_backend
 ```
 
 The backend will be available at [http://localhost:3050](http://localhost:3050). You can test the API using Postman or any HTTP client.
-
-## 6. Run the MCP Server
-
-```bash
-# Start the MCP server
-uv run --env-file .env src/mcp_server/main.py
-
-#If you have make installed locally, you can also use make commands to run this directly
-make run_mcp_server
-
-#Check the mcp server using mcp inspector
-fastmcp dev src/mcp_server/main.py
-
-#If you have make installed locally, you can also use make commands to run this directly
-make run_mcp_inspector
-
-```
-
-## 7. Run the MCP Client
-```bash
-# Start the MCP server
-uv run --env-file .env src/mcp_client/main_mcp.py
-
-#If you have make installed locally, you can also use make commands to run this directly
-make run_mcp_client
 
 ```

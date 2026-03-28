@@ -2,15 +2,6 @@
 run_ui_backend:
 	uv run --env-file .env src/main.py
 
-run_mcp_client:
-	uv run --env-file .env src/mcp_client/main_mcp.py
-
-run_mcp_server:
-	uv run --env-file .env src/mcp_server/main.py
-
-run_mcp_inspector:
-	fastmcp dev src/mcp_server/main.py
-
 docker_rm:
 	docker rm -f analytics_agent
 
