@@ -189,23 +189,23 @@ The backend will be available at [http://localhost:3050](http://localhost:3050).
 # Start the MCP server
 uv run --env-file .env src/mcp_server/main.py
 
-# If you have make installed locally, you can also use make commands to run this directly
-make mcp_serve
+#If you have make installed locally, you can also use make commands to run this directly
+make run_mcp_server
 
-# Check the mcp server using mcp inspector
+#Check the mcp server using mcp inspector
 fastmcp dev src/mcp_server/main.py
 
 #If you have make installed locally, you can also use make commands to run this directly
-make mcp_inspector
+make run_mcp_inspector
 
 ```
 
 ## 7. Run the MCP Client
 ```bash
 # Start the MCP server
-uv run --env-file .env src/main_mcp.py
+uv run --env-file .env src/mcp_client/main_mcp.py
 
-# If you have make installed locally, you can also use make commands to run this directly
-make run_mcp
+#If you have make installed locally, you can also use make commands to run this directly
+make run_mcp_client
 
 ```
