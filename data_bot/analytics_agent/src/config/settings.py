@@ -63,7 +63,7 @@ class Settings(BaseSettings):
     POSTGRES_PASSWORD: str
     POSTGRES_PORT: int = 5432
 
-    LLM_CONFIG: dict
+    LLM_CONFIG: dict = {}
 
 
 @lru_cache
