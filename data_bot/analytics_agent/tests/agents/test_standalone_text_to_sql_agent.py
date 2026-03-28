@@ -16,10 +16,10 @@ class TestTextToSQLAgent:
         ],
     )
     def test_text_to_sql_agent(
-        self, duckdb_tool: Tools, llm_config: dict, query: str, temperature: float
+        self, db_tool: Tools, llm_config: dict, query: str, temperature: float
     ):
         text_to_sql_agent = StandaloneTextToSQLAgent.from_azure_llm_config(
-            duckdb_tool, llm_config, temperature
+            db_tool, llm_config, temperature
         )
         agent = text_to_sql_agent.agent
 

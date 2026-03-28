@@ -3,7 +3,6 @@
 import os
 from functools import lru_cache
 
-from analytics_agents.tools.duckdb import DuckDBTool, TableInfo
 from analytics_agents.tools.postgres_tool import PostgresTool
 from analytics_agents.tools.tool import Tools
 from analytics_agents.tools.user_input import UserInputTool

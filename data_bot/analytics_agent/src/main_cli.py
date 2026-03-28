@@ -9,7 +9,7 @@ from config.langfuse import langfuse_callback
 standalone_text_to_sql_agent = StandaloneTextToSQLAgent.from_groq(
     # llm_config=settings.LLM_CONFIG,
     api_key=settings.GROQ_API_KEY,
-    duckdb_tool=db_tool,
+    db_tool=db_tool,
     temperature=0,
 )
 agent = standalone_text_to_sql_agent.agent

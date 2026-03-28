@@ -4,7 +4,7 @@ from mcp.server.fastmcp import FastMCP
 from config.dependencies import get_db_tool
 
 # Create FastMCP server
-mcp = FastMCP("DuckDB MCP Server")
+mcp = FastMCP("Postgres MCP Server")
 
 
 @mcp.tool()
