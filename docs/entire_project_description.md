@@ -315,7 +315,7 @@ analytics_agent/
 └── src/
     ├── main.py                          ← FastAPI app (CopilotKit / AG-UI endpoint)
     ├── main_mcp.py                      ← Interactive CLI using MCP tools
-    ├── text_sumarizer.py                ← Standalone text summarisation utility
+    ├── text_summarizer.py                ← Standalone text summarisation utility
     ├── config/
     │   ├── settings.py                  ← Pydantic Settings (env vars)
     │   ├── dependencies.py              ← Dependency injection (db_tool, user_input_tool)
@@ -596,7 +596,7 @@ CMD ["uv", "run", "/app/src/main.py"]
 
 ### 5.5 Text Summariser (Utility)
 
-**File:** `data_bot/analytics_agent/src/text_sumarizer.py`
+**File:** `data_bot/analytics_agent/src/text_summarizer.py`
 
 A simple, standalone LangChain pipeline that summarises any piece of text using an LLM and returns a structured `SummaryOutput` (title + summary). Demonstrates using `PromptTemplate` + `PydanticOutputParser` for structured output.
 
@@ -884,7 +884,7 @@ make loadbalance_rm            # tear down
 | `run_mcp` | `uv run src/main_mcp.py` | Start MCP CLI client |
 | `mcp_serve` | `uv run src/mcp_server/main.py` | Start MCP HTTP server |
 | `mcp_inspector` | `fastmcp dev src/mcp_server/main.py` | Open MCP dev inspector |
-| `run_summarizer` | `uv run src/text_sumarizer.py` | Run text summariser |
+| `run_summarizer` | `uv run src/text_summarizer.py` | Run text summariser |
 | `docker_build` | `docker build -t analytics_agent .` | Build Docker image |
 | `docker_run` | Build + run single container | Single container on :3050 |
 | `loadbalance` | `docker compose up --build` | 2 agents + Nginx |
