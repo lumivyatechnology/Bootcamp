@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import PromptTemplate
 from langchain_groq import ChatGroq
-from langchain_openai import AzureChatOpenAI
 from pydantic import BaseModel, Field
 
 from config import settings
@@ -36,7 +35,7 @@ You are an expert text summarizer. Given the following text, provide a concise s
 """
 
 
-LLM_CONFIG = json.loads(os.getenv("LLM_CONFIG"))
+LLM_CONFIG = json.loads(os.getenv("LLM_CONFIG", '{}'))
 
 
 def get_summarizer_chain(text: str) -> SummaryOutput:

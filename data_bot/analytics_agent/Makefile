@@ -1,5 +1,5 @@
 
-run_ui:
+run_ui_backend:
 	uv run --env-file .env src/main.py
 
 run_mcp:
