@@ -1,3 +1,5 @@
+import os
+
 from config import settings
 
 from analytics_agents.standalone_text_to_sql_agent import (
@@ -10,6 +12,19 @@ from langchain_mcp_adapters.tools import load_mcp_tools
 import uuid
 
 import asyncio
+
+from langfuse import Langfuse
+from langfuse.langchain import CallbackHandler
+
+
+langfuse_instance = Langfuse(
+    secret_key=os.environ.get("LANGFUSE_SECRET_KEY", ""),
+    public_key=os.environ.get("LANGFUSE_PUBLIC_KEY", ""),
+    environment=os.environ.get("LANGFUSE_ENVIRONMENT", ""),
+    base_url=os.environ.get("LANGFUSE_BASE_URL", ""),
+)
+
+langfuse_callback = CallbackHandler()
 
 # HTTP-based MCP transport
 transport = StreamableHTTPTransport(
@@ -44,13 +59,15 @@ async def run_text_to_sql_agent(question: str, thread_id: str = "user-123-sessio
             agent = StandaloneTextToSQLAgent.from_groq(
                 api_key=settings.GROQ_API_KEY,
                 temperature=0,
-                duckdb_tool=mcp_tools,
+                db_tool=mcp_tools,
             )
 
             # Invoke agent (await if async)
             _input = {"messages": [{"role": "user", "content": question}]}
             result = await agent.agent.ainvoke(
-                _input, config={"configurable": {"thread_id": thread_id}}
+                _input, config={"configurable": {"thread_id": thread_id},
+                                "callbacks": [langfuse_callback],
+                                }
             )
 
             result = result["messages"][-1].content

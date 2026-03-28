@@ -60,14 +60,14 @@ You must follow the ReAct pattern: **Thought, Action, Observation.**
 
     @classmethod
     def from_azure_llm_config(
-        cls, duckdb_tool: Tools, llm_config: dict, temperature: float
+        cls, db_tool: Tools, llm_config: dict, temperature: float
     ):
         llm = AzureChatOpenAI(**llm_config, temperature=temperature)
-        return cls.from_llm(duckdb_tool=duckdb_tool, llm=llm)
+        return cls.from_llm(db_tool=db_tool, llm=llm)
 
     @classmethod
     def from_perplexity(
-        cls, duckdb_tool: Tools | list, api_key: str, temperature: float
+        cls, db_tool: Tools | list, api_key: str, temperature: float
     ):
         llm = ChatOpenAI(
             api_key=api_key,
@@ -76,19 +76,19 @@ You must follow the ReAct pattern: **Thought, Action, Observation.**
             temperature=temperature,
         )
         # llm = ChatPerplexity(temperature=temperature, pplx_api_key=key, model="sonar")
-        return cls.from_llm(duckdb_tool=duckdb_tool, llm=llm)
+        return cls.from_llm(db_tool=db_tool, llm=llm)
 
     @classmethod
-    def from_groq(cls, duckdb_tool: Tools | list, api_key: str, temperature: float):
+    def from_groq(cls, db_tool: Tools | list, api_key: str, temperature: float):
         llm = ChatGroq(api_key=api_key, temperature=temperature, model="qwen/qwen3-32b")
-        return cls.from_llm(duckdb_tool=duckdb_tool, llm=llm)
+        return cls.from_llm(db_tool=db_tool, llm=llm)
 
     @classmethod
-    def from_llm(cls, duckdb_tool: Tools | list, llm: BaseChatModel):
-        if isinstance(duckdb_tool, Tools):
-            duckdb_tool = duckdb_tool.tools
-        # print(duckdb_tool)
-        return cls(duckdb_tool, llm)
+    def from_llm(cls, db_tool: Tools | list, llm: BaseChatModel):
+        if isinstance(db_tool, Tools):
+            db_tool = db_tool.tools
+        # print(db_tool)
+        return cls(db_tool, llm)
 
     @property
     def agent(self):

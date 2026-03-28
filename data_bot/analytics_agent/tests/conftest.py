@@ -55,27 +55,6 @@ TABLES = [
 
 
 @pytest.fixture(scope="session")
-def duckdb_tool() -> Tools:
-    """Fixture that loads all tables once and provides the DuckDB tool object."""
-
-    base_dir = os.environ.get("DATA_BASE_PATH_TEST", ".")
-
-    # Attach full paths
-    for table in TABLES:
-        table["path"] = os.path.join(base_dir, table["path"])
-
-    table_infos = [TableInfo(**t) for t in TABLES]
-
-    tool = DuckDBTool(tables=table_infos)
-    # TODO DUCKDB
-    tool.load_tables()
-
-    print("[*] Tables Loaded:", [t.name for t in table_infos])
-
-    return tool
-
-
-@pytest.fixture(scope="session")
 def user_input_tool():
     return UserInputTool()
 
