@@ -19,6 +19,11 @@ Make sure you have the following tools installed before you begin:
 | Postman | Latest | API testing (optional but recommended) |
 | Docker | Latest | Containerization (optional but recommended) |
 
+Inside the project root directory `Bootcamp`  
+Create a virtual environment using uv which will later be used in jupyter notebooks.
+```
+uv venv --python 3.12
+```
 ---
 
 ## 2. Scrape the Data
