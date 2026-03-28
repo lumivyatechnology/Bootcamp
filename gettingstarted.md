@@ -131,6 +131,9 @@ The scraped data is raw data which needs to be cleaned before we can use it for 
 # Navigate to the frontend directory
 cd data_bot/ui
 
+# Copy the example env file and fill in your values
+cp .env.example .env
+
 # Install dependencies
 npm install
 
@@ -181,4 +184,29 @@ make run_ui_backend
 
 The backend will be available at [http://localhost:8000](http://localhost:8000). You can test the API using Postman or any HTTP client.
 
-###
+## 6. Run the MCP Server
+
+```bash
+# Start the MCP server
+uv run --env-file .env src/mcp_server/main.py
+
+#If you have make installed locally, you can also use make commands to run this directly
+make mcp_serve
+
+#Check the mcp server using mcp inspector
+fastmcp dev src/mcp_server/main.py
+
+#If you have make installed locally, you can also use make commands to run this directly
+make mcp_inspector
+
+```
+
+## 7. Run the MCP Client
+```bash
+# Start the MCP server
+uv run --env-file .env src/main_mcp.py
+
+#If you have make installed locally, you can also use make commands to run this directly
+make run_mcp
+
+```
