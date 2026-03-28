@@ -1,12 +1,12 @@
 cpu_id,cpu_model
 1,Exynos 2400 S5E9945
-2,Not Specified
-3,Snapdragon
-4,MediaTek Helio
-5,Others
-6,Snapdragon 8 Elite
-7,A-Series
-8,Snapdragon 8 Series
+2,Snapdragon
+3,MediaTek Helio
+4,Others
+5,Snapdragon 8 Elite
+6,A-Series
+7,Snapdragon 8 Series
+8,Not Specified
 9,Cortex A7
 10,Cortex
 11,80C31
