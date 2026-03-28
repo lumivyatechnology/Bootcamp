@@ -162,7 +162,6 @@ LANGFUSE_SECRET_KEY=your_secret_key
 LANGFUSE_PUBLIC_KEY=your_public_key
 LANGFUSE_BASE_URL=https://cloud.langfuse.com
 GROQ_API_KEY=your_groq_key
-LLM_CONFIG={}
 DATA_BASE_PATH=
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=root
@@ -182,7 +181,7 @@ uv run --env-file .env src/main.py
 make run_ui_backend
 ```
 
-The backend will be available at [http://localhost:8000](http://localhost:8000). You can test the API using Postman or any HTTP client.
+The backend will be available at [http://localhost:3050](http://localhost:3050). You can test the API using Postman or any HTTP client.
 
 ## 6. Run the MCP Server
 
