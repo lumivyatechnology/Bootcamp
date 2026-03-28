@@ -13,18 +13,7 @@ import uuid
 
 import asyncio
 
-from langfuse import Langfuse
-from langfuse.langchain import CallbackHandler
-
-
-langfuse_instance = Langfuse(
-    secret_key=os.environ.get("LANGFUSE_SECRET_KEY", ""),
-    public_key=os.environ.get("LANGFUSE_PUBLIC_KEY", ""),
-    environment=os.environ.get("LANGFUSE_ENVIRONMENT", ""),
-    base_url=os.environ.get("LANGFUSE_BASE_URL", ""),
-)
-
-langfuse_callback = CallbackHandler()
+from config.langfuse import langfuse_callback
 
 # HTTP-based MCP transport
 transport = StreamableHTTPTransport(
