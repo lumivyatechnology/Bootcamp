@@ -60,7 +60,7 @@ data_acquisition/
 cd data_acquisition
 
 # Create and activate a virtual environment
-uv venv
+uv venv --python 3.12
 
 # Install dependencies
 uv pip install scrapy selenium webdriver-manager scrapy-fake-useragent
@@ -116,8 +116,16 @@ To run Chrome without opening a browser window, uncomment this line in the spide
 - Scraping too fast may trigger blocks or CAPTCHAs — be respectful of rate limits.
 
 ---
+## 3. Normalize and Load the Data
+The scraped data is raw data which needs to be cleaned before we can use it for our mobile phone data analyzer system, so we will perform data cleaning and normalization to make this data ready for our further AI operations. 
 
-## 3. Run the Frontend
+### Steps
+1. Navigate to **data_processing** and populate the .env file considering .env.example.
+2. Run the cells in **etl.ipynb** to run the extract, transform, normalize and load the raw data into our postgresql database.
+
+---
+
+## 4. Run the Chatbot Frontend
 
 ```bash
 # Navigate to the frontend directory
@@ -134,7 +142,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 ---
 
-## 4. Run the Backend
+## 5. Run the Chatbot Backend
 
 ```bash
 # Navigate to the backend directory
@@ -165,7 +173,12 @@ POSTGRES_PORT=5432
 uv sync && uv sync --dev
 
 # Start the server
-uv run python main.py
+uv run --env-file .env src/main.py
+
+#If you have make installed locally, you can also use make commands to run this directly
+make run_ui_backend
 ```
 
 The backend will be available at [http://localhost:8000](http://localhost:8000). You can test the API using Postman or any HTTP client.
+
+###
