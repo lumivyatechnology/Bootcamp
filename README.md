@@ -62,13 +62,14 @@ data_acquisition/
 
 ```bash
 # Navigate to the data acquisition directory
-cd data_acquisition
+cd backend
 
 # Create and activate a virtual environment
-uv venv --python 3.12
+uv venv
 
 #activate
-source .venv/bin/activate
+source .venv/bin/activate # for linux
+.venv/Scripts/activate  # for windows
 
 # Install dependencies
 uv pip install scrapy selenium webdriver-manager scrapy-fake-useragent
@@ -77,6 +78,10 @@ uv pip install scrapy selenium webdriver-manager scrapy-fake-useragent
 ### Running the Spider
 
 ```bash
+# Navigate to scraping folder having scrapy.cfg
+cd scraper
+cd data_acquisition 
+
 # Export to CSV (overwrites existing file)
 uv run scrapy crawl samsung_phones -O samsung_phones_specs.csv
 
@@ -137,7 +142,7 @@ The scraped data is raw data which needs to be cleaned before we can use it for 
 
 ```bash
 # Navigate to the frontend directory
-cd data_bot/ui
+cd frontend
 
 # Copy the example env file and fill in your values
 cp .env.example .env
@@ -157,7 +162,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 ```bash
 # Navigate to the backend directory
-cd data_bot/analytics_agent
+cd backend/
 
 # Copy the example env file and fill in your values
 cp .env.example .env
@@ -170,7 +175,6 @@ LANGFUSE_SECRET_KEY=your_secret_key
 LANGFUSE_PUBLIC_KEY=your_public_key
 LANGFUSE_BASE_URL=https://cloud.langfuse.com
 GROQ_API_KEY=your_groq_key
-DATA_BASE_PATH=
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=root
 POSTGRES_DB=postgres

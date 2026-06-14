@@ -1,4 +1,4 @@
-.venv
+backend/.venv
 .pytest_cache
 __pycache__/
 .ipynb_checkpoints/
@@ -15,6 +15,6 @@ logs/
 *.log
 *.egg-info
 
-.env
+backend/.env
 
 data
