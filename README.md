@@ -187,7 +187,7 @@ POSTGRES_PORT=5432
 uv sync && uv sync --dev
 
 # Start the server
-uv run --env-file .env src/main.py
+uv run --env-file ../../.env src/main.py
 
 #If you have make installed locally, you can also use make commands to run this directly
 make run_ui_backend
