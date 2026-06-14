@@ -35,6 +35,10 @@ The scraper collects **Samsung phone listings from Amazon** — pulling key spec
 > ⚠️ Amazon may block automated traffic, show CAPTCHAs, or return partial data. Always comply with the site's Terms of Service and applicable laws.
 
 ### Folder Structure
+```bash
+# Navigate to the data acquisition directory
+cd backend/scraper
+```
 
 ```
 data_acquisition/
@@ -187,7 +191,7 @@ POSTGRES_PORT=5432
 uv sync && uv sync --dev
 
 # Start the server
-uv run --env-file ../../.env src/main.py
+uv run --env-file .env src/main.py
 
 #If you have make installed locally, you can also use make commands to run this directly
 make run_ui_backend
