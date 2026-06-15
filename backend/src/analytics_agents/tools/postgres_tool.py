@@ -97,7 +97,7 @@ class PostgresTool(Tools):
         df = self.execute_df(query)
 
         if df.empty:
-            raise Exception(f"Table '{table_name}' does not exist.")
+            return f"Table '{table_name}' does not exist."
 
         return self._df_to_create_statement(df, table_name)
 

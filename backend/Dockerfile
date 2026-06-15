@@ -5,8 +5,9 @@ WORKDIR /app
 
 COPY Makefile .
 COPY pyproject.toml .
+COPY samsung_phones_specs.csv .
 
-RUN uv sync --no-cache
+RUN uv sync --no-cache --group etl
 
 ADD src /app/src
 

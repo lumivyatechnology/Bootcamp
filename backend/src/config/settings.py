@@ -47,7 +47,7 @@ class Settings(BaseSettings):
     APP_NAME: str = Field(default="Analytics Agent", description="Application name")
     APP_VERSION: str = Field(default="0.0.1", description="Application version")
 
-    DATA_BASE_PATH: str = Field(default=".", description="Data base path")
+    DATA_BASE_PATH: str = Field(default="./src/scraper/data_ingestion/dataset", description="Data base path")
     DATA_BASE_PATH_TEST: str = Field(default=".", description="Data base path")
 
     LANGFUSE_SECRET_KEY: str = Field(default="", description="Langfuse secret key")
@@ -57,13 +57,17 @@ class Settings(BaseSettings):
 
     GROQ_API_KEY: str = Field(default="", description="Groq API key")
 
-    POSTGRES_DB: str
-    POSTGRES_HOST: str = "localhost"
-    POSTGRES_USER: str
-    POSTGRES_PASSWORD: str
-    POSTGRES_PORT: int = 5432
+    DB_HOST: str = "localhost"
+    DB_PORT: int = 5432
+    DB_PASSWORD: str
+    DB_NAME: str
+    DB_USER: str
+
+    SOURCE: str = "postgres"
 
     LLM_CONFIG: dict = {}
+
+    RUN_ETL: bool = Field(default=False, description="Whether to run ETL process on startup")
 
 
 @lru_cache
@@ -79,6 +83,3 @@ def get_settings() -> Settings:
 
 
 settings = get_settings()
-
-print(settings)
-print(settings.LLM_CONFIG)

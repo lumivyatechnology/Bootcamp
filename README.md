@@ -179,11 +179,11 @@ LANGFUSE_SECRET_KEY=your_secret_key
 LANGFUSE_PUBLIC_KEY=your_public_key
 LANGFUSE_BASE_URL=https://cloud.langfuse.com
 GROQ_API_KEY=your_groq_key
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=root
-POSTGRES_DB=postgres
-POSTGRES_HOST=localhost
-POSTGRES_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=root
+DB_NAME=postgres
+DB_HOST=localhost
+DB_PORT=5432
 ```
 
 ```bash
