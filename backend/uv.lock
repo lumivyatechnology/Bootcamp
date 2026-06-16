@@ -52,6 +52,7 @@ dependencies = [
     { name = "langchain-perplexity" },
     { name = "langfuse" },
     { name = "langgraph" },
+    { name = "langgraph-prebuilt" },
     { name = "mcp", extra = ["cli"] },
     { name = "pandas" },
     { name = "psycopg2-binary" },
@@ -65,6 +66,9 @@ dev = [
     { name = "pytest" },
     { name = "ruff" },
 ]
+etl = [
+    { name = "sqlalchemy" },
+]
 lint = [
     { name = "ruff" },
 ]
@@ -72,7 +76,6 @@ scraper = [
     { name = "scrapy" },
     { name = "scrapy-fake-useragent" },
     { name = "selenium" },
-    { name = "sqlalchemy" },
     { name = "webdriver-manager" },
 ]
 test = [
@@ -94,6 +97,7 @@ requires-dist = [
     { name = "langchain-perplexity", specifier = ">=1.1.0" },
     { name = "langfuse", specifier = ">=3.10.6" },
     { name = "langgraph", specifier = "==1.0.5" },
+    { name = "langgraph-prebuilt", specifier = "==1.0.5" },
     { name = "mcp", extras = ["cli"] },
     { name = "pandas" },
     { name = "psycopg2-binary", specifier = ">=2.9.11" },
@@ -107,12 +111,12 @@ dev = [
     { name = "pytest" },
     { name = "ruff" },
 ]
+etl = [{ name = "sqlalchemy", specifier = ">=2.0.50" }]
 lint = [{ name = "ruff" }]
 scraper = [
     { name = "scrapy", specifier = ">=2.16.0" },
     { name = "scrapy-fake-useragent", specifier = ">=1.4.4" },
     { name = "selenium", specifier = ">=4.44.0" },
-    { name = "sqlalchemy", specifier = ">=2.0.50" },
     { name = "webdriver-manager", specifier = ">=4.1.2" },
 ]
 test = [{ name = "pytest" }]

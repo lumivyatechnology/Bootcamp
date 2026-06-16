@@ -124,14 +124,14 @@ class DuckDBTool(Tools):
         column_info_df = self.execute_df(f"DESCRIBE SELECT * FROM {table_name};")
         # ddl = self.connection.execute(f"PRAGMA table_info('{table_name}');").fetchall()
         if column_info_df.empty:
-            raise Exception(f"Table '{table_name}' does not exist.")
+            return f"Table '{table_name}' does not exist."
 
         try:
             ddl = self._df_to_create_statement(column_info_df, table_name)
-        except Exception as e:
+        except Exception:
             print("[!] Table does not exist: ", table_name)
             print("[!] column_info: ", column_info_df)
-            raise e
+            return "Table does not exists"
         return ddl
 
     @property
