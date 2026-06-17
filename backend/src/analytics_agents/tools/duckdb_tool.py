@@ -36,7 +36,9 @@ class DuckDBTool(Tools):
 
     @classmethod
     def from_base_dir(cls, base_dir: str):
-        files = [f for f in Path(base_dir).iterdir() if f.is_file()]
+        SUPPORTED_FORMATS = {".csv", ".parquet"}
+        files = [f for f in Path(base_dir).iterdir() if f.is_file() and f.suffix in SUPPORTED_FORMATS]
+        # files = [f for f in Path(base_dir).iterdir() if f.is_file()]
 
         # Build table infos with full paths
         table_infos = []
