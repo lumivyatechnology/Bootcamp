@@ -2,8 +2,8 @@ import csv
 
 BOT_NAME = "amazon_samsung"
 
-SPIDER_MODULES = ["amazon_samsung.spiders"]
-NEWSPIDER_MODULE = "amazon_samsung.spiders"
+SPIDER_MODULES = ["src.scraper.data_acquisition.amazon_samsung.spiders"]
+NEWSPIDER_MODULE = "src.scraper.data_acquisition.amazon_samsung.spiders"
 
 ROBOTSTXT_OBEY = False
 
