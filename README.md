@@ -42,28 +42,6 @@ The scraper collects **Samsung phone listings from Amazon** — pulling key spec
 
 > ⚠️ Amazon may block automated traffic, show CAPTCHAs, or return partial data. Always comply with the site's Terms of Service and applicable laws.
 
-### Folder Structure
-
-```bash
-# Navigate to the data acquisition directory
-cd backend/scraper
-```
-
-```
-data_acquisition/
-├── amazon_samsung/
-│   ├── __init__.py
-│   ├── items.py
-│   ├── middlewares.py
-│   ├── pipelines.py
-│   ├── settings.py
-│   └── spiders/
-│       ├── __init__.py
-│       └── samsung_phones.py   ← spider must live here
-├── env/                        # optional virtual environment
-├── scrapy.cfg
-└── samsung_phones_specs.csv    # example output
-```
 
 ### Requirements
 
@@ -78,22 +56,17 @@ data_acquisition/
 cd backend
 
 # Create and activate a virtual environment
-uv venv
+uv sync
 
 #activate
 source .venv/bin/activate # for linux
-.venv/Scripts/activate  # for windows
+.venv\Scripts\activate  # for windows
 
-# Install dependencies
-uv pip install scrapy selenium webdriver-manager scrapy-fake-useragent
 ```
 
 ### Running the Spider
 
 ```bash
-# Navigate to scraping folder having scrapy.cfg
-cd scraper
-cd data_acquisition
 
 # Export to CSV (overwrites existing file)
 uv run scrapy crawl samsung_phones -O samsung_phones_specs.csv
@@ -149,12 +122,32 @@ The scraped data is raw data which needs to be cleaned before we can use it for 
 
 ### Steps
 
-1. Navigate to **data_processing** and populate the .env file considering .env.example.
+1. Navigate to **backend\src\scraper\data_ingestion** and populate the .env file considering .env.example.
 2. Run the cells in **etl.ipynb** to run the extract, transform, normalize and load the raw data into our postgresql database.
 
 ---
 
-## 4. Run the Chatbot Frontend
+## 4. Run the analytics agent notebook
+### Steps
+
+1. Navigate to **backend\ai-notebooks**.
+2. Run the cells in **analytics_agent_cli.ipynb** to run the analytics agent and analyze the data loaded into the database.
+
+---
+
+## 4. Run the analytics agent cli
+```bash
+
+cd backend
+# Install dependencies
+uv sync && uv sync --dev
+
+# Start the server
+uv run --env-file .env src/run_cli.py
+```
+---
+
+## 5. Run the Chatbot Frontend
 
 ```bash
 # Navigate to the frontend directory
@@ -204,9 +197,6 @@ uv sync && uv sync --dev
 
 # Start the server
 uv run --env-file .env src/main.py
-
-#If you have make installed locally, you can also use make commands to run this directly
-make run_ui_backend
 ```
 
 The backend will be available at [http://localhost:3050](http://localhost:3050). You can test the API using Postman or any HTTP client.
