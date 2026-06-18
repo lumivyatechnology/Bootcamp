@@ -8,23 +8,31 @@ This guide will help you set up your development environment and get started wit
 
 Make sure you have the following tools installed before you begin:
 
-| Tool | Version | Notes |
-|------|---------|-------|
-| Python | >= 3.10 | Use [pyenv](https://github.com/pyenv/pyenv) to manage versions (recommended) |
-| Node.js | >= 20.9.0 | Use [nvm](https://github.com/nvm-sh/nvm) to manage versions (recommended) |
-| npm | Bundled with Node.js | — |
-| uv | Latest | Python package manager |
-| Git | Latest | Version control |
-| VS Code | Latest | Recommended editor — [download here](https://code.visualstudio.com/) |
-| Postman | Latest | API testing (optional but recommended) |
-| Docker | Latest | Containerization (optional but recommended) |
+| Tool    | Version              | Notes                                                                        |
+| ------- | -------------------- | ---------------------------------------------------------------------------- |
+| Python  | >= 3.10              | Use [pyenv](https://github.com/pyenv/pyenv) to manage versions (recommended) |
+| Node.js | >= 20.9.0            | Use [nvm](https://github.com/nvm-sh/nvm) to manage versions (recommended)    |
+| npm     | Bundled with Node.js | —                                                                            |
+| uv      | Latest               | Python package manager                                                       |
+| Git     | Latest               | Version control                                                              |
+| VS Code | Latest               | Recommended editor — [download here](https://code.visualstudio.com/)         |
+| Postman | Latest               | API testing (optional but recommended)                                       |
+| Docker  | Latest               | Containerization (optional but recommended)                                  |
 
 Inside the project root directory `Bootcamp`  
 Create a virtual environment using uv which will later be used in jupyter notebooks.
+
 ```
 uv venv --python 3.12
 ```
----
+
+If you want to avoid everyone downloading the same Python packages from the public registry during a bootcamp, run the package cache helper in `package_server/`:
+
+```bash
+python package_server/bootcamp_package_server.py
+```
+
+It exports the backend lockfile, adds repo-specific supplemental packages from the scraper/notebooks, downloads everything into `package_server/wheelhouse`, and serves it on your local network.
 
 ## 2. Scrape the Data
 
@@ -35,6 +43,7 @@ The scraper collects **Samsung phone listings from Amazon** — pulling key spec
 > ⚠️ Amazon may block automated traffic, show CAPTCHAs, or return partial data. Always comply with the site's Terms of Service and applicable laws.
 
 ### Folder Structure
+
 ```bash
 # Navigate to the data acquisition directory
 cd backend/scraper
@@ -84,7 +93,7 @@ uv pip install scrapy selenium webdriver-manager scrapy-fake-useragent
 ```bash
 # Navigate to scraping folder having scrapy.cfg
 cd scraper
-cd data_acquisition 
+cd data_acquisition
 
 # Export to CSV (overwrites existing file)
 uv run scrapy crawl samsung_phones -O samsung_phones_specs.csv
@@ -114,15 +123,15 @@ To run Chrome without opening a browser window, uncomment this line in the spide
 
 ```json
 {
-  "name": "Samsung Galaxy ...",
-  "price": "$199.99",
-  "brand": "SAMSUNG",
-  "operating_system": "Android",
-  "ram": "8 GB",
-  "cpu_model": "Snapdragon ...",
-  "cpu_speed": "3.2 GHz",
-  "ratings_count": "1234",
-  "url": "https://www.amazon.com/..."
+    "name": "Samsung Galaxy ...",
+    "price": "$199.99",
+    "brand": "SAMSUNG",
+    "operating_system": "Android",
+    "ram": "8 GB",
+    "cpu_model": "Snapdragon ...",
+    "cpu_speed": "3.2 GHz",
+    "ratings_count": "1234",
+    "url": "https://www.amazon.com/..."
 }
 ```
 
@@ -133,10 +142,13 @@ To run Chrome without opening a browser window, uncomment this line in the spide
 - Scraping too fast may trigger blocks or CAPTCHAs — be respectful of rate limits.
 
 ---
+
 ## 3. Normalize and Load the Data
-The scraped data is raw data which needs to be cleaned before we can use it for our mobile phone data analyzer system, so we will perform data cleaning and normalization to make this data ready for our further AI operations. 
+
+The scraped data is raw data which needs to be cleaned before we can use it for our mobile phone data analyzer system, so we will perform data cleaning and normalization to make this data ready for our further AI operations.
 
 ### Steps
+
 1. Navigate to **data_processing** and populate the .env file considering .env.example.
 2. Run the cells in **etl.ipynb** to run the extract, transform, normalize and load the raw data into our postgresql database.
 
@@ -202,7 +214,9 @@ The backend will be available at [http://localhost:3050](http://localhost:3050).
 ---
 
 ## 6. Containerize the Backend for Production
+
 Docker is used for containerization of the application backend file, and we use the following commands for dockerization. We containerize an app and then use it in production.
+
 ```
 To build the image
 docker build -t analytics_agent .
