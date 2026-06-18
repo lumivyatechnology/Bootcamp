@@ -1,4 +1,4 @@
-backend/.venv
+.venv
 .pytest_cache
 __pycache__/
 .ipynb_checkpoints/
@@ -15,10 +15,6 @@ logs/
 *.log
 *.egg-info
 
-backend/.env
-package_server/.bootcamp-requirements.txt
-package_server/wheelhouse/
-package_server/node_registry/
-package_server/.venv
-
 data
+.env.docker
+.env

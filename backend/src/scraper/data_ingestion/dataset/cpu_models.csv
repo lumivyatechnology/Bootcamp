@@ -1,0 +1,37 @@
+cpu_id,cpu_model
+1,Snapdragon 8 Gen1
+2,Snapdragon
+3,1.2GHz Cortex A8 Processor
+4,Not Specified
+5,1.2GHz Cortex A13 Processor
+6,Mediatek Dimensity 6300
+7,Mediatek Dimensity 900
+8,Mediatek Dimensity 6100 Plus
+9,1.2GHz Cortex A9 Processor
+10,MediaTek Helio
+11,Exynos 1280
+12,Snapdragon 855
+13,Exynos 2400 S5E9945
+14,Qualcomm Snapdragon S4 MSM8270
+15,Cortex
+16,Snapdragon 8 Gen2
+17,Exynos 1330 S5E8535
+18,Exynos 1480 S5E8845
+19,Core i5
+20,Mediatek Dimensity 810
+21,Others
+22,Qualcomm Snapdragon MSM8260A
+23,Exynos 1380
+24,Unknown
+25,Allwinner A31
+26,Snapdragon 8 Elite
+27,A-Series
+28,MediaGX
+29,Snapdragon S5
+30,Exynos 4412
+31,Exynos 1380 S5E8835
+32,Snapdragon 8 Gen3
+33,Exynos 2400E
+34,Mediatek Dimensity 920
+35,MediaTek Kompanio 800T
+36,Exynos 1280 S5E8825
