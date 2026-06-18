@@ -25,6 +25,10 @@ dependencies = [
     "google-genai",
     "psycopg2-binary>=2.9.11",
     "langgraph_prebuilt==1.0.5",
+    "scrapy>=2.16.0",
+    "selenium>=4.44.0",
+    "webdriver-manager>=4.1.2",
+    "scrapy-fake-useragent>=1.4.4",
 ]
 requires-python = ">=3.12"
 

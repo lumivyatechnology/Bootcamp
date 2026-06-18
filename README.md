@@ -118,57 +118,6 @@ To run Chrome without opening a browser window, uncomment this line in the spide
 
 ## 3. Normalize and Load the Data
 
-The scraped data is raw data which needs to be cleaned before we can use it for our mobile phone data analyzer system, so we will perform data cleaning and normalization to make this data ready for our further AI operations.
-
-### Steps
-
-1. Navigate to **backend\src\scraper\data_ingestion** and populate the .env file considering .env.example.
-2. Run the cells in **etl.ipynb** to run the extract, transform, normalize and load the raw data into our postgresql database.
-
----
-
-## 4. Run the analytics agent notebook
-### Steps
-
-1. Navigate to **backend\ai-notebooks**.
-2. Run the cells in **analytics_agent_cli.ipynb** to run the analytics agent and analyze the data loaded into the database.
-
----
-
-## 4. Run the analytics agent cli
-```bash
-
-cd backend
-# Install dependencies
-uv sync && uv sync --dev
-
-# Start the server
-uv run --env-file .env src/run_cli.py
-```
----
-
-## 5. Run the Chatbot Frontend
-
-```bash
-# Navigate to the frontend directory
-cd frontend
-
-# Copy the example env file and fill in your values
-cp .env.example .env
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
-
----
-
-## 5. Run the Chatbot Backend
-
 ```bash
 # Navigate to the backend directory
 cd backend/
@@ -191,6 +140,40 @@ DB_HOST=localhost
 DB_PORT=5432
 ```
 
+The scraped data is raw data which needs to be cleaned before we can use it for our mobile phone data analyzer system, so we will perform data cleaning and normalization to make this data ready for our further AI operations.
+
+### Steps
+
+1. Navigate to **backend\src\scraper\data_ingestion** and populate the .env file considering .env.example.
+2. Run the cells in **etl.ipynb** to run the extract, transform, normalize and load the raw data into our postgresql database.
+
+---
+
+## 4. Run the analytics agent notebook
+### Steps
+
+1. Navigate to **backend\ai-notebooks**.
+2. Run the cells in **analytics_agent_cli.ipynb** to run the analytics agent and analyze the data loaded into the database.
+
+---
+
+## 5. Run the analytics agent cli
+```bash
+
+cd backend
+# Install dependencies
+uv sync && uv sync --dev
+
+# Start the server
+uv run --env-file .env src/run_cli.py
+```
+---
+
+
+## 6. Run the Chatbot Backend
+
+
+
 ```bash
 # Install dependencies
 uv sync && uv sync --dev
@@ -202,18 +185,23 @@ uv run --env-file .env src/main.py
 The backend will be available at [http://localhost:3050](http://localhost:3050). You can test the API using Postman or any HTTP client.
 
 ---
+## 7. Run the Chatbot Frontend
 
-## 6. Containerize the Backend for Production
+```bash
+# Navigate to the frontend directory
+cd frontend
 
-Docker is used for containerization of the application backend file, and we use the following commands for dockerization. We containerize an app and then use it in production.
+# Copy the example env file and fill in your values
+cp .env.example .env
 
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
-To build the image
-docker build -t analytics_agent .
 
-To run the container
-docker run --env-file .env -p 3050:3050 --name analytics_agent analytics_agent
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-You can also use docker compose to run the container
-docker compose up --build
-```
+---
+
