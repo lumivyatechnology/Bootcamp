@@ -26,12 +26,6 @@ Create a virtual environment using uv which will later be used in jupyter notebo
 uv venv --python 3.12
 ```
 
-If you want to avoid everyone downloading the same Python packages from the public registry during a bootcamp, run the package cache helper in `package_server/`:
-
-```bash
-python package_server/bootcamp_package_server.py
-```
-
 It exports the backend lockfile, adds repo-specific supplemental packages from the scraper/notebooks, downloads everything into `package_server/wheelhouse`, and serves it on your local network.
 
 ## 2. Scrape the Data
@@ -41,7 +35,6 @@ The scraper collects **Samsung phone listings from Amazon** — pulling key spec
 **Stack:** [Scrapy](https://scrapy.org/) for crawling + [Selenium](https://www.selenium.dev/) (Chrome WebDriver) for rendering dynamic content.
 
 > ⚠️ Amazon may block automated traffic, show CAPTCHAs, or return partial data. Always comply with the site's Terms of Service and applicable laws.
-
 
 ### Requirements
 
@@ -150,6 +143,7 @@ The scraped data is raw data which needs to be cleaned before we can use it for 
 ---
 
 ## 4. Run the analytics agent notebook
+
 ### Steps
 
 1. Navigate to **backend\ai-notebooks**.
@@ -158,6 +152,7 @@ The scraped data is raw data which needs to be cleaned before we can use it for 
 ---
 
 ## 5. Run the analytics agent cli
+
 ```bash
 
 cd backend
@@ -167,12 +162,10 @@ uv sync && uv sync --dev
 # Start the server
 uv run --env-file .env src/run_cli.py
 ```
+
 ---
 
-
 ## 6. Run the Chatbot Backend
-
-
 
 ```bash
 # Install dependencies
@@ -185,6 +178,7 @@ uv run --env-file .env src/main.py
 The backend will be available at [http://localhost:3050](http://localhost:3050). You can test the API using Postman or any HTTP client.
 
 ---
+
 ## 7. Run the Chatbot Frontend
 
 ```bash
@@ -204,4 +198,3 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
 ---
-
