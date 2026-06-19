@@ -1,0 +1,68 @@
+[project]
+dependencies = [
+  "langchain",
+  "langchain_openai",
+  "duckdb",
+  "pydantic-settings",
+  "pydantic",
+  "pandas",
+  "langgraph==1.0.5",
+  "fastapi",
+  "uvicorn",
+  "ag-ui-langgraph>=0.0.18",
+  "copilotkit==0.1.70a0",
+  "langfuse>=3.10.6",
+  "langchain-perplexity>=1.1.0",
+  "langchain-groq>=1.1.1",
+  "mcp[cli]",
+  "fastmcp>=2.14.1",
+  "langchain-mcp-adapters>=0.2.1",
+  "google-genai",
+  "psycopg2-binary>=2.9.11",
+  "langgraph_prebuilt==1.0.5",
+  "scrapy>=2.16.0",
+  "selenium>=4.44.0",
+  "webdriver-manager>=4.1.2",
+  "scrapy-fake-useragent>=1.4.4",
+  "ipykernel>=7.3.0",
+]
+description = "Analytics Agent for bootcamp"
+license = "Apache-2.0"
+name = "analytics_agent"
+readme = {file = "README.md", content-type = "markdown"}
+requires-python = ">=3.12"
+version = "0.0.1"
+
+[dependency-groups]
+dev = ["pytest", "ruff"]
+etl = [
+  "sqlalchemy>=2.0.50",
+]
+lint = ["ruff"]
+scraper = [
+  "scrapy>=2.16.0",
+  "selenium>=4.44.0",
+  "webdriver-manager>=4.1.2",
+  "scrapy-fake-useragent>=1.4.4",
+]
+test = ["pytest"]
+
+[project.scripts]
+cli = "main_cli:run"
+crawl = "scrapy crawl samsung_phones -O samsung_phones_specs.csv"
+serve = "main:main"
+
+[tool.ruff]
+src = ["src"]
+
+[tool.mypy]
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+env_files = ".env"
+pythonpath = ["src"]
+
+[[tool.uv.index]]
+explicit = true
+name = 'copilotkit'
+url = "https://copilotkit.gateway.scarf.sh/simple/"

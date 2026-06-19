@@ -19,14 +19,19 @@ Make sure you have the following tools installed before you begin:
 | Postman | Latest               | API testing (optional but recommended)                                       |
 | Docker  | Latest               | Containerization (optional but recommended)                                  |
 
-Inside the project root directory `Bootcamp`  
+At the project root directory:
 Create a virtual environment using uv which will later be used in jupyter notebooks.
 
 ```
+# Create and activate a virtual environment
 uv venv --python 3.12
-```
+uv sync
 
-It exports the backend lockfile, adds repo-specific supplemental packages from the scraper/notebooks, downloads everything into `package_server/wheelhouse`, and serves it on your local network.
+#activate
+source .venv/bin/activate # for linux
+.venv\Scripts\activate  # for windows
+
+```
 
 ## 2. Scrape the Data
 
@@ -42,24 +47,11 @@ The scraper collects **Samsung phone listings from Amazon** — pulling key spec
 - Google Chrome installed
 - Python packages: `scrapy`, `selenium`, `webdriver-manager`, `scrapy-fake-useragent`
 
-### Setup
-
-```bash
-# Navigate to the data acquisition directory
-cd backend
-
-# Create and activate a virtual environment
-uv sync
-
-#activate
-source .venv/bin/activate # for linux
-.venv\Scripts\activate  # for windows
-
-```
-
 ### Running the Spider
 
 ```bash
+# Navigate to backend directory
+cd backend
 
 # Export to CSV (overwrites existing file)
 uv run scrapy crawl samsung_phones -O samsung_phones_specs.csv
@@ -72,7 +64,7 @@ uv run scrapy crawl samsung_phones -O samsung_phones_specs.json
 
 ### Configuration
 
-In `amazon_samsung/spiders/samsung_phones.py`:
+In `backend/src/scraper/data_acquisition/amazon_samsung/spiders/samsung_phones.py`:
 
 ```python
 max_pages = 10  # number of Amazon search pages to crawl
@@ -156,8 +148,6 @@ The scraped data is raw data which needs to be cleaned before we can use it for 
 ```bash
 
 cd backend
-# Install dependencies
-uv sync && uv sync --dev
 
 # Start the server
 uv run --env-file .env src/run_cli.py
