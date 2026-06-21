@@ -81,6 +81,7 @@ dependencies = [
     { name = "scrapy" },
     { name = "scrapy-fake-useragent" },
     { name = "selenium" },
+    { name = "sqlalchemy" },
     { name = "uvicorn" },
     { name = "webdriver-manager" },
 ]
@@ -131,6 +132,7 @@ requires-dist = [
     { name = "scrapy", specifier = ">=2.16.0" },
     { name = "scrapy-fake-useragent", specifier = ">=1.4.4" },
     { name = "selenium", specifier = ">=4.44.0" },
+    { name = "sqlalchemy", specifier = ">=2.0.51" },
     { name = "uvicorn" },
     { name = "webdriver-manager", specifier = ">=4.1.2" },
 ]
